@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Nova+Flat&display=swap");
+
+.font-nova-flat {
+  font-family: "Nova Flat", cursive;
+}
 
 @font-face {
   src: url("https://www.axis-praxis.org/fonts/webfonts/MetaVariableDemo-Set.woff2")
@@ -66,19 +71,38 @@ body {
 }
 
 .award-image {
-  margin-top: 100px;
-  width: 25.5vw; /* Adjust size */
+  margin-top: 55px;
+  width: 20vw; /* Adjust size */
   max-width: 100%;
-  height: 22.5vh;
-  
+  height: 17vh;
+  margin-left: 5px;
 }
 
-.handyman-img{
+.handyman-img {
   position: absolute;
   right: 200px; /* Moves it all the way to the right */
-  top: 32%;
+  top: 30%;
   transform: translateY(0%); /* Centers it vertically */
   height: 20vh; /* Adjust this as needed */
+}
+.logo-responsive {
+  width: 20vw; /* or try 12rem or 25vh depending on the look */
+  max-width: none; /* override Tailwind's max-w-[300px] */
+  margin-top: 90px;
+}
+
+@keyframes pulse-grow {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse-animation {
+  animation: pulse-grow 2.5s infinite;
 }
 
 /* Main Section */
@@ -118,14 +142,14 @@ body {
   font-size: 1.2rem;
   color: #ff6a00;
   text-shadow: 2px 1px 0 black;
-  font-size: 1.3rem;
+  font-size: 2rem;
   margin-bottom: 10px;
 }
 
 .home-button {
-    display: inline-block;
+  display: inline-block;
   padding: 10px 24px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   background: #ff6a00;
   color: white;
   text-decoration: none;
@@ -140,8 +164,19 @@ body {
   transform: scale(1.15);
 }
 
+.button-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem 7.3rem; /* more spacing between buttons */
+}
 
-
+.big-orange-heading {
+  font-weight: 800; /* equivalent to font-extrabold */
+  color: #f97316; /* equivalent to text-orange-500 */
+  text-shadow: 2px 1px 0 black; /* same as drop-shadow-[2px_1px_0_black] */
+  font-size: 2rem; /* Try 1.5rem (24px), or adjust as needed */
+}
 
 /* Testimonial Section */
 .testimonials-section {
@@ -191,7 +226,6 @@ body {
   font-weight: bold;
   color: #ff6a00;
 }
-
 
 .testimonials-section h2 {
   font-size: 2rem;
@@ -268,10 +302,10 @@ body {
   transition: 0.3s ease-in-out;
 }
 
-.portfolio-filters li:hover,
+/* .portfolio-filters li:hover,
 .portfolio-filters .filter-active {
   background: #ff7b00;
-}
+} */
 
 /* Portfolio Grid */
 .portfolio-container {
@@ -288,11 +322,12 @@ body {
 }
 
 .portfolio-item img {
-  width: 100%;
-  height: auto;
+  width: 75rem;
+  height: 15rem;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out;
   margin: 1.5rem;
+  object-fit: cover;
 }
 
 /* Hover Effect */
@@ -320,18 +355,30 @@ body {
 .portfolio-lightbox {
   display: inline-block;
   padding: 6px 12px;
-  background: #ff7b00;
+  /* background: #ff7b00; */
   color: white;
   border-radius: 4px;
   margin-top: 5px;
   text-decoration: none;
 }
 
-.portfolio-lightbox:hover {
+/* .portfolio-lightbox:hover {
   background: #ff5400;
-}
+} */
 
 /*Services Section */
+.perspective {
+  perspective: 1000px;
+}
+
+.card-container .group {
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card-container:hover .group > div:nth-child(2) {
+  transform: rotateY(0deg); /* Fixes flipped/mirrored text */
+}
 
 .services {
   background-image: url("/Pics/Services/background_services.jpg");
@@ -354,11 +401,33 @@ body {
   transition: transform 0.6s;
 }
 
+.card:hover {
+  transform: rotateY(180deg);
+}
+
 .card-container:hover .card {
   transform: rotateY(180deg);
 }
 
 /* FRONT SIDE - IMAGE */
+
+.img-box,
+.details {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .card .img-box {
   position: absolute;
   width: 100%;
@@ -375,21 +444,17 @@ body {
 }
 
 /* BACK SIDE - TEXT */
-.card .details {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
+.details {
+  font-size: 1.5rem;
+  transform: rotateY(180deg);
   background: rgba(255, 115, 0, 0.85);
   color: white;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  transform: rotateY(180deg);
-  border-radius: 10px;
+  flex-direction: column;
 }
 
 .details h4 {
@@ -407,11 +472,51 @@ body {
   margin: 5px 0;
 }
 
+.card-title {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+  padding: 0.5rem 0;
+  border-radius: 0 0 12px 12px;
+}
+
+/* About Section*/
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
 .about {
-  background-image: url("/Pics/About/funny_about.jpg");
-  background-size: 65%;
+  background-image: url("/Pics/About/About_page.jpg");
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
+  position: relative; /* required for ::before overlay */
+  z-index: 1;
+}
+
+.about-text {
+  text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black,
+    -1px 1px 0 black;
+}
+
+.portfolio-caption {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.125rem; /* equivalent to text-lg in Tailwind */
+  padding: 0.5rem 0;
+  border-radius: 0 0 12px 12px;
 }

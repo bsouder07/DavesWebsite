@@ -2,28 +2,29 @@ import React from "react";
 import emailjs from "@emailjs/browser";
 
 const Contact = () => {
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  //     emailjs
-  //       .sendForm(
-  //         "service_80edhgn", // Service ID
-  //         "template_lwi4k78", // Template ID
-  //         e.target, // The form element
-  //         "ucWwMuILv-Rut1kXw" // Public API Key
-  //       )
-  //       .then(
-  //         (result) => {
-  //           console.log("SUCCESS!", result.text);
-  //           alert("Message sent successfully!");
-  //         },
-  //         (error) => {
-  //           console.log("FAILED", error.text);
-  //           alert("Failed to send the message properly");
-  //         }
-  //       );
-  //     e.target.reset();
-  //   };
+    emailjs
+      .sendForm(
+        "service_52vq7rc",          // ✅ Updated Service ID
+        "template_uldnzno",         // ✅ Template ID
+        e.target,                   // ✅ Form Element
+        "ucWwMuILv-Rut1kXw"         // ✅ Public API Key
+      )
+      .then(
+        (result) => {
+          console.log("SUCCESS!", result.text);
+          alert("Message sent successfully!");
+        },
+        (error) => {
+          console.log("FAILED", error.text);
+          alert("Failed to send the message properly");
+        }
+      );
+
+    e.target.reset(); // Clear form after submission
+  };
 
   return (
     <section
@@ -43,70 +44,68 @@ const Contact = () => {
 
       {/* Contact Form */}
       <div className="container bg-white-400 bg-opacity-25 p-10 rounded-lg shadow-lg z-10">
-        <h1 className="text-5xl font-extrabold text-orange-500 tracking-wide text-center drop-shadow-[2px_1px_0_black] mb-5">
+        <h1 className="text-5xl font-extrabold text-orange-500 tracking-wide text-center drop-shadow-[2px_3px_0_black] mb-5">
           Contact Me
         </h1>
-        {/*  make sure to add this to the form before the className! onSubmit={handleSubmit} */}
-        <form className="space-y-4">
-          {/* Name Input */}
+
+        {/* ✅ FORM is now connected to onSubmit */}
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div className="flex flex-col">
-            <label className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
+            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
               Your Name
             </label>
             <input
               type="text"
-              name="name"
-              className="p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              name="from_name"
+              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Enter your name"
               required
             />
           </div>
 
-          {/* Email Input */}
           <div className="flex flex-col">
-            <label className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
+            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
               Your Email
             </label>
             <input
               type="email"
               name="reply_to"
-              className="p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Enter your email"
               required
             />
           </div>
 
-          {/* Subject Input */}
           <div className="flex flex-col">
-            <label className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
+            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] mb-1.5">
               Subject
             </label>
             <input
               type="text"
               name="subject"
-              className="p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Enter subject"
               required
             />
           </div>
 
-          {/* Message Textarea */}
           <div className="flex flex-col">
-            <label className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">Message</label>
+            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] mb-1.5">
+              Message
+            </label>
             <textarea
               name="message"
               rows="5"
-              className="p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Write your message here..."
               required
             ></textarea>
           </div>
 
-          {/* Submit Button */}
           <div className="text-center">
             <button
               type="submit"
-              className="px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-red-600 transition font-bold text-lg"
+              className="px-8 py-4 bg-orange-500 text-white rounded-lg hover:bg-red-600 transition font-bold text-3xl"
             >
               Send Message
             </button>

@@ -1,11 +1,73 @@
 import React from "react";
 
+const serviceData = [
+  {
+    title: "Carpentry",
+    image: "Pics/Services/carpentry_services.jpg",
+    description: (
+      <ul>
+        <li>Custom Woodwork</li>
+        <li>Trim & Molding</li>
+        <li>Cabinet Installation</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Gutter Cleaning",
+    image: "Pics/Services/gutter_services.jpg",
+    description: <p>Prevent water damage with regular gutter maintenance.</p>,
+  },
+  {
+    title: "Deck Repair",
+    image: "Pics/Services/deckrepair_services.jpg",
+    description: (
+      <ul>
+        <li>Wood Rot Fixing</li>
+        <li>Structural Repairs</li>
+        <li>Staining & Sealing</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Pressure Washing",
+    image: "Pics/Services/pressurewashing_services.jpg",
+    description: (
+      <p>Remove dirt, grime, and stains from your home's exterior.</p>
+    ),
+  },
+  {
+    title: "Aluminum Work",
+    image: "Pics/Services/aluminumwork_services.jpg",
+    description: (
+      <ul>
+        <li>Custom Fabrication</li>
+        <li>Repairs & Installation</li>
+        <li>Trim & Flashing</li>
+      </ul>
+    ),
+  },
+  {
+    title: "Siding & Soffit",
+    image: "Pics/Services/soffits_services.jpg",
+    description: (
+      <p>
+        Upgrade your home’s exterior with durable siding and soffit solutions.
+      </p>
+    ),
+  },
+
+  {
+    title: "Interior Remodeling",
+    image: "Pics/Services/remodeling_services.jpg",
+    description: (
+      <p>Repairing and upgrading any aspect of your home's interior.</p>
+    ),
+  },
+];
+
 const Services = () => {
   return (
-    <section
-      id="services"
-      className="services w-full py-16 bg-gray-100 relative"
-    >
+    <section id="services" className="services w-full py-16 relative">
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 p-12">
@@ -17,135 +79,24 @@ const Services = () => {
           </h3>
         </div>
 
-        {/* Service Cards */}
-        <div className="flex justify-center flex-wrap gap-6">
-          {/* Carpentry */}
-          <div className="card-container">
-            <div className="card">
-              <div className="img-box">
-                <img
-                  src="Pics/Services/carpentry_services.jpg"
-                  alt="Carpentry"
-                />
-              </div>
-              <div className="details">
-                <h4 className="font-extrabold text-5xl text-black drop-shadow-[2px_2px_0_white]">
-                  Carpentry
-                </h4>
-                <ul className="text-black text-2xl leading-relaxed">
-                  <li>Custom Woodwork</li>
-                  <li>Furniture Repair</li>
-                  <li>Trim & Molding</li>
-                  <li>Cabinet Installation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+        {/* Cards */}
+        <div className="flex justify-center flex-wrap gap-x-6 gap-y-12">
+          {serviceData.map((service, index) => (
+            <div key={index} className="card-container">
+              <div className="card">
+                {/* Front */}
+                <div className="img-box">
+                  <img src={service.image} alt={service.title} />
+                </div>
 
-          {/* Gutter Cleaning */}
-          <div className="card-container">
-            <div className="card">
-              <div className="img-box">
-                <img
-                  src="Pics/Services/gutter_services.jpg"
-                  alt="Gutter Cleaning"
-                />
+                {/* Back */}
+                <div className="details">{service.description}</div>
               </div>
-              <div className="details">
-                <h4 className="font-extrabold text-5xl text-black drop-shadow-[2px_2px_0_white]">
-                  Gutter Cleaning
-                </h4>
-                <p className="text-black text-2xl leading-relaxed">
-                  Prevent water damage with regular gutter maintenance.
-                </p>
-              </div>
-            </div>
-          </div>
 
-          {/* Deck Repair */}
-          <div className="card-container">
-            <div className="card">
-              <div className="img-box">
-                <img
-                  src="Pics/Services/deckrepair_services.jpg"
-                  alt="Deck Repair"
-                />
-              </div>
-              <div className="details">
-                <h4 className="font-bold text-5xl text-black drop-shadow-[2px_2px_0_white]">
-                  Deck Repair
-                </h4>
-                <ul className="text-black text-2xl">
-                  <li>Wood Rot Fixing</li>
-                  <li>Structural Repairs</li>
-                  <li>Staining & Sealing</li>
-                </ul>
-              </div>
+              {/* Service Title */}
+              <div className="card-title">{service.title}</div>
             </div>
-          </div>
-
-          {/* Pressure Washing */}
-          <div className="card-container">
-            <div className="card">
-              <div className="img-box">
-                <img
-                  src="Pics/Services/pressurewashing_services.jpg"
-                  alt="Pressure Washing"
-                />
-              </div>
-              <div className="details">
-                <h4 className="font-bold text-5xl text-black drop-shadow-[2px_2px_0_white]">
-                  Pressure Washing
-                </h4>
-                <p className="text-black text-2xl">
-                  Remove dirt, grime, and stains from your home's exterior.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Aluminum Work */}
-          <div className="card-container">
-            <div className="card">
-              <div className="img-box">
-                <img
-                  src="Pics/Services/aluminumwork_services.jpg"
-                  alt="Aluminum Work"
-                />
-              </div>
-              <div className="details">
-                <h4 className="font-bold text-5xl text-black drop-shadow-[2px_2px_0_white]">
-                  Aluminum Work
-                </h4>
-                <ul className="text-black text-2xl">
-                  <li>Custom Fabrication</li>
-                  <li>Repairs & Installation</li>
-                  <li>Trim & Flashing</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Siding & Soffit */}
-          <div className="card-container">
-            <div className="card">
-              <div className="img-box">
-                <img
-                  src="Pics/Services/soffits_services.jpg"
-                  alt="Siding & Soffit"
-                />
-              </div>
-              <div className="details">
-                <h4 className="font-bold text-5xl text-black drop-shadow-[2px_2px_0_white]">
-                  Siding & Soffit
-                </h4>
-                <p className="text-black text-2xl">
-                  Upgrade your home’s exterior with durable siding and soffit
-                  solutions.
-                </p>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
