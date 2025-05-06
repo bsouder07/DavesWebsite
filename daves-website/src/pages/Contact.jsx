@@ -7,10 +7,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_52vq7rc",          // ✅ Updated Service ID
-        "template_uldnzno",         // ✅ Template ID
-        e.target,                   // ✅ Form Element
-        "ucWwMuILv-Rut1kXw"         // ✅ Public API Key
+        "service_52vq7rc", // Updated Service ID
+        "template_lwi4k78",
+        e.target,
+        "ucWwMuILv-Rut1kXw"
       )
       .then(
         (result) => {
@@ -22,16 +22,14 @@ const Contact = () => {
           alert("Failed to send the message properly");
         }
       );
-
-    e.target.reset(); // Clear form after submission
+    e.target.reset();
   };
 
   return (
     <section
       id="contact"
-      className="relative w-full h-screen flex items-center justify-center"
+      className="relative w-full min-h-screen pt-28 md:pt-28 sm:pt-32 flex items-center justify-center"
     >
-      {/* Background Video */}
       <video
         autoPlay
         loop
@@ -42,61 +40,59 @@ const Contact = () => {
         Your browser does not support the video tag.
       </video>
 
-      {/* Contact Form */}
-      <div className="container bg-white-400 bg-opacity-25 p-10 rounded-lg shadow-lg z-10">
-        <h1 className="text-5xl font-extrabold text-orange-500 tracking-wide text-center drop-shadow-[2px_3px_0_black] mb-5">
+      <div className="container bg-white-400 bg-opacity-25 p-6 md:p-10 rounded-lg shadow-lg z-10 w-[90%] md:w-[70%] lg:w-[50%]">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-orange-500 tracking-wide text-center drop-shadow-[2px_3px_0_black] mb-5">
           Contact Me
         </h1>
 
-        {/* ✅ FORM is now connected to onSubmit */}
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="flex flex-col">
-            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
+            <label className="text-2xl md:text-3xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
               Your Name
             </label>
             <input
               type="text"
-              name="from_name"
-              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              name="name"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Enter your name"
               required
             />
           </div>
 
           <div className="flex flex-col">
-            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
+            <label className="text-xl md:text-3xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
               Your Email
             </label>
             <input
               type="email"
               name="reply_to"
-              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Enter your email"
               required
             />
           </div>
 
           <div className="flex flex-col">
-            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] mb-1.5">
+            <label className="text-xl md:text-3xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
               Subject
             </label>
             <input
               type="text"
               name="subject"
-              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Enter subject"
               required
             />
           </div>
 
           <div className="flex flex-col">
-            <label className="text-4xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] mb-1.5">
+            <label className="text-xl md:text-3xl font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black]">
               Message
             </label>
             <textarea
               name="message"
               rows="5"
-              className="text-2xl p-3 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
               placeholder="Write your message here..."
               required
             ></textarea>
@@ -105,7 +101,7 @@ const Contact = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="px-8 py-4 bg-orange-500 text-white rounded-lg hover:bg-red-600 transition font-bold text-3xl"
+              className="px-6 py-3 md:px-8 md:py-4 bg-orange-500 text-white rounded-lg hover:bg-red-600 transition font-bold text-xl md:text-3xl"
             >
               Send Message
             </button>

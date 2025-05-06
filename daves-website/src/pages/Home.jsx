@@ -5,12 +5,12 @@ function Home() {
   return (
     <section id="home">
       {/* Award, Logo, and Silhouette Section */}
-      <div className="award-section flex items-center justify-between px-8 w-full py-6 transform translate translate-x">
+      <div className="award-section flex items-center justify-between px-8 w-full py-6 flex-wrap md:flex-nowrap">
         <div className="flex-shrink-0 w-[17vw] ml-4 pulse-animation ">
           <img
             src="/Pics/Home/Daves_award_PennyPower.jpg"
             alt="Award"
-            className="award-image small-award w-full rounded-3xl"
+            className="award-image"
           />
         </div>
 
@@ -18,7 +18,7 @@ function Home() {
           <img
             src="/Pics/Davids_Logo_2.jpg"
             alt="David the Handyman Logo"
-            className="logo-responsive mx-auto max-w-[25vw] ml-125"
+            className="logo-image"
           />
         </div>
 
@@ -26,7 +26,7 @@ function Home() {
           <img
             src="/Pics/Home/home_sihouette_orange.jpg"
             alt="Handyman Illustration"
-            className="w-full"
+            className="silhouette-image"
           />
         </div>
       </div>

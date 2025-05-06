@@ -117,7 +117,7 @@ const BeforeAfter = () => {
       ],
     },
     {
-      category: "all",
+      category: "misc",
       title: "Miscellaneous",
       images: [
         "/Pics/Portfolio/pizza_shelf_1.jpg",
@@ -168,7 +168,7 @@ const BeforeAfter = () => {
   ];
 
   return (
-    <section className="portfolio">
+    <section className="portfolio bg-[url('/Pics/Portfolio/wood_background.jpg')] bg-center bg-cover min-h-[150vh] bg-fixed sm:bg-scroll">
       <div className="container mx-auto px-4">
         <ul className="flex justify-center flex-wrap gap-2 my-4 mt-12">
           {categories.map(({ key, label }) => (
@@ -196,7 +196,7 @@ const BeforeAfter = () => {
                 <img
                   src={item.src}
                   alt={item.title}
-                  className="rounded-lg object-cover w-full h-40 hover:scale-105 transition-transform duration-200"
+                  className="rounded-lg object-cover w-full h-40 min-h-[160px] hover:scale-105 transition-transform duration-200"
                 />
               </a>
               {item.caption && (
