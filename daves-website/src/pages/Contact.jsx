@@ -7,7 +7,7 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_52vq7rc", // Updated Service ID
+        "service_52vq7rc",
         "template_lwi4k78",
         e.target,
         "ucWwMuILv-Rut1kXw"
@@ -28,18 +28,11 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="relative w-full min-h-screen pt-28 md:pt-28 sm:pt-32 flex items-center justify-center"
+      className="relative w-full min-h-screen pt-28 md:pt-28 sm:pt-32 flex items-center justify-center bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/Pics/NewContactPageBackground.jpg')",
+      }}
     >
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute top-0 left-0 w-full h-full object-cover -z-10"
-      >
-        <source src="/Pics/saw_contactpage.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
       <div className="container bg-white-400 bg-opacity-25 p-6 md:p-10 rounded-lg shadow-lg z-10 w-[90%] md:w-[70%] lg:w-[50%]">
         <h1 className="text-4xl md:text-6xl font-extrabold text-orange-500 tracking-wide text-center drop-shadow-[2px_3px_0_black] mb-5">
           Contact Me
@@ -53,7 +46,7 @@ const Contact = () => {
             <input
               type="text"
               name="name"
-              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-white text-white bg-black bg-opacity-40"
               placeholder="Enter your name"
               required
             />
@@ -66,7 +59,7 @@ const Contact = () => {
             <input
               type="email"
               name="reply_to"
-              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-white text-white bg-black bg-opacity-40"
               placeholder="Enter your email"
               required
             />
@@ -79,7 +72,7 @@ const Contact = () => {
             <input
               type="text"
               name="subject"
-              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-white text-white bg-black bg-opacity-40"
               placeholder="Enter subject"
               required
             />
@@ -92,7 +85,7 @@ const Contact = () => {
             <textarea
               name="message"
               rows="5"
-              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-black"
+              className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-white text-white bg-black bg-opacity-40"
               placeholder="Write your message here..."
               required
             ></textarea>

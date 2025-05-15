@@ -67,7 +67,7 @@ const serviceData = [
 
 const Services = () => {
   return (
-    <section id="services" className="services w-full py-16 relative">
+    <section id="services" className="services w-full min-h-screen  py-16 relative">
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 p-12">

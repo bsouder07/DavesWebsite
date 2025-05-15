@@ -6,7 +6,7 @@ const Navbar = () => {
 
   const linkClasses = ({ isActive }) =>
     `font-nova-flat text-black text-2xl font-extrabold tracking-wide drop-shadow-[1px_1px_0_white] hover:text-orange-600 transition duration-200 ${
-      isActive ? "underline underline-offset-4 text-orange-600" : ""
+      isActive ? "underline underline-offset-4 text-red-700" : ""
     }`;
 
   const navItems = [
@@ -18,7 +18,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="header bg-transparent backdrop-blur-md fixed w-full top-0 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 h-24">
+    <header className="header bg-[#ff8c00] fixed w-full top-0 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 h-24">
       {/* Desktop Nav */}
       <nav className="hidden md:flex flex-wrap items-center justify-center gap-8 mx-auto">
         {navItems.map(({ label, to }, index) => (

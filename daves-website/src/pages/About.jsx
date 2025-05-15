@@ -13,7 +13,7 @@ function About() {
       <br/>
       <br/>
       {/* Story Text */}
-      <p className="about-text max-w-7xl mx-auto text-xl md:text-5xl leading-relaxed text-orange-500 drop-shadow-[2px_2px_0_black]">
+      <p className="about-text max-w-6xl mx-auto text-base sm:text-lg md:text-2xl lg:text-4xl xl:text-5xl leading-relaxed text-orange-500 drop-shadow-[2px_2px_0_black]">
         Dave was born and raised here in the Lehigh Valley. You can say carpentry runs in his blood, 
         as his dad once owned his own construction business. So, when the company Dave was working for 
         closed operations here in PA, Dave decided to follow in his dad's footsteps by doing something 

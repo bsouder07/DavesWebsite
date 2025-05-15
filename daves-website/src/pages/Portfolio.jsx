@@ -104,6 +104,11 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/siding_before_1.jpg",
         "/Pics/Portfolio/siding_after_1.jpg",
         "/Pics/Portfolio/soffit_1.jpg",
+        "/Pics/Portfolio/siding_pic3.jpg",
+        "/Pics/Portfolio/siding_pic4.jpg",
+        "/Pics/Portfolio/siding_pic5.jpg",
+        "/Pics/Portfolio/siding_pic6.jpg",
+        "/Pics/Portfolio/siding_pic7.jpg",
       ],
     },
     {
@@ -126,8 +131,13 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/shed_2.jpg",
       ],
     },
+    {
+      category: "all",
+      title: "Extra Soffit Work",
+      images: ["/Pics/Portfolio/soffit_2.jpg"],
+    },
   ];
-
+  
   const portfolioItems = groupedItems.flatMap((item) =>
     item.images.map((img, idx) => {
       const isObject = typeof img === "object";
