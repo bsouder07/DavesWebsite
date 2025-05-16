@@ -7,10 +7,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_52vq7rc",
-        "template_lwi4k78",
+        "service_02qr77m",
+        "template_uldnzno",
         e.target,
-        "ucWwMuILv-Rut1kXw"
+        "sNYkJMHdm8BdM185_"
       )
       .then(
         (result) => {
