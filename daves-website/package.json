@@ -1,5 +1,6 @@
 {
   "name": "daves-website",
+  "homepage": "www.dkththehandyman.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,11 +8,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy":"npm run build && cp CNAME dist/",
+    "deploy":"gh-pages -d dist"
+    
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.0.14",
+    "gh-pages": "^6.3.0",
     "glightbox": "^3.3.1",
     "isotope-layout": "^3.0.6",
     "react": "^19.0.0",
