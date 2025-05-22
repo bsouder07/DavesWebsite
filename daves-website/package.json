@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build && cp CNAME docs/ && touch docs/.nojekyll",
+    "predeploy": "npm run build && cp CNAME docs/",
     "deploy": "gh-pages -d docs"
   },
   "dependencies": {
