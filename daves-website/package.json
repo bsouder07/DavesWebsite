@@ -1,6 +1,6 @@
 {
   "name": "daves-website",
-  "homepage": "www.dkththehandyman.com",
+  "homepage": "https://www.dkththehandyman.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build && cp CNAME docs/",
+    "predeploy": "npm run build && echo 'dkththehandyman.com' > docs/CNAME",
     "deploy": "gh-pages -d docs"
   },
   "dependencies": {
