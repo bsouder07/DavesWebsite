@@ -178,7 +178,12 @@ const BeforeAfter = () => {
   ];
 
   return (
-    <section className="portfolio bg-[url('/Pics/Portfolio/portfolio_wood_background.jpg')] bg-center bg-cover min-h-[150vh] bg-fixed sm:bg-scroll">
+    <section
+  className="portfolio bg-center bg-cover min-h-[150vh] bg-fixed sm:bg-scroll"
+  style={{
+    backgroundImage: "url('/Pics/Portfolio/portfolio_wood_background.jpg')",
+  }}
+>
       <div className="container mx-auto px-4">
         <ul className="flex justify-center flex-wrap gap-2 my-4 mt-12">
           {categories.map(({ key, label }) => (

@@ -381,12 +381,12 @@ nav {
 /* === Prevent "Contact Me" button from hiding behind testimonial === */
 @media (max-width: 500px) {
   .home-button.pulse-animation {
-    margin-bottom: 2.5rem; /* Space above testimonial */
+    margin-bottom: 1.1rem; 
     z-index: 2;
     position: relative;
   }
   .home-button {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     padding: 0.5rem 1.5rem;
   }
   .button-box{
