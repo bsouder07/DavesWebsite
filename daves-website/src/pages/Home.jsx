@@ -67,9 +67,12 @@ function Home() {
             >
               Contact Me
             </Link>
-            <p className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] text-4xl sm:text-2xl ">
+            <Link
+              to="/contact"
+              className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] text-3xl  hover:underline hover:scale-105 transition-all duration-200 ease-in-out"
+            >
               Leave a Review
-            </p>
+            </Link>
           </div>
         </div>
       </div>
