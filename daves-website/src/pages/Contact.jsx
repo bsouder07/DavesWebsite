@@ -45,7 +45,7 @@ const Contact = () => {
             </label>
             <input
               type="text"
-              name="name"
+              name="from_name"
               className="text-xl md:text-2xl p-4 border border-gray-500 rounded-lg drop-shadow-[2px_1px_0_orange] font-bold placeholder-white text-white bg-black bg-opacity-40"
               placeholder="Enter your name"
               required
