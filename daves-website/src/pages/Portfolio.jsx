@@ -8,6 +8,7 @@ const BeforeAfter = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const groupedItems = [
+    // ----- GUTTER ITEMS -----
     {
       category: "gutter",
       title: "Gutter Before & After 1",
@@ -32,6 +33,20 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/gutter_soffitt_fixed_3.jpg",
       ],
     },
+    // ➜ Shayne's review photos go in Gutter
+    {
+      category: "gutter",
+      title: "Gutter / Soffit – Shayne Milot",
+      images: [
+        "/Pics/Home/Reviews/Review_Shayne_pic0.jpg",
+        "/Pics/Home/Reviews/Review_Shayne_pic1.jpg",
+        "/Pics/Home/Reviews/Review_Shayne_pic2.jpg",
+        "/Pics/Home/Reviews/Review_Shayne_pic3.jpg",
+        "/Pics/Home/Reviews/Review_Shayne_pic4.jpg",
+      ],
+    },
+
+    // ----- DECK -----
     {
       category: "deck",
       title: "Deck Fix",
@@ -43,11 +58,10 @@ const BeforeAfter = () => {
     {
       category: "deck",
       title: "Deck Work",
-      images: [
-        "/Pics/Portfolio/deck_pic3.jpg",
-        "/Pics/Portfolio/deck_pic4.jpg",
-      ],
+      images: ["/Pics/Portfolio/deck_pic3.jpg", "/Pics/Portfolio/deck_pic4.jpg"],
     },
+
+    // ----- CARPENTRY -----
     {
       category: "carpentry",
       title: "Carpentry",
@@ -81,8 +95,15 @@ const BeforeAfter = () => {
         { src: "/Pics/Portfolio/carpentry_wall_3.jpg" },
         { src: "/Pics/Portfolio/replacement_stairs_1.jpg" },
         { src: "/Pics/Portfolio/replacement_stairs_2.jpg" },
+        // ➜ Bobbie's review picture added to carpentry
+        {
+          src: "/Pics/Home/Reviews/Review_Bobbie_pic1.jpg",
+          caption: "Stairs rebuild",
+        },
       ],
     },
+
+    // ----- FLOORING -----
     {
       category: "flooring",
       title: "Flooring Transformation",
@@ -97,6 +118,8 @@ const BeforeAfter = () => {
         },
       ],
     },
+
+    // ----- SIDING -----
     {
       category: "siding",
       title: "Siding",
@@ -111,6 +134,8 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/siding_pic7.jpg",
       ],
     },
+
+    // ----- PRESSURE WASHING -----
     {
       category: "pressure-washing",
       title: "Pressure Washing",
@@ -121,6 +146,8 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/pressurewashing_4.jpg",
       ],
     },
+
+    // ----- MISC -----
     {
       category: "misc",
       title: "Miscellaneous",
@@ -131,13 +158,15 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/shed_2.jpg",
       ],
     },
+
+    // keep your extra
     {
       category: "all",
       title: "Extra Soffit Work",
       images: ["/Pics/Portfolio/soffit_2.jpg"],
     },
   ];
-  
+
   const portfolioItems = groupedItems.flatMap((item) =>
     item.images.map((img, idx) => {
       const isObject = typeof img === "object";
@@ -179,11 +208,11 @@ const BeforeAfter = () => {
 
   return (
     <section
-  className="portfolio bg-center bg-cover min-h-[150vh] bg-fixed sm:bg-scroll"
-  style={{
-    backgroundImage: "url('/Pics/Portfolio/portfolio_wood_background.jpg')",
-  }}
->
+      className="portfolio bg-center bg-cover min-h-[150vh] bg-fixed sm:bg-scroll"
+      style={{
+        backgroundImage: "url('/Pics/Portfolio/portfolio_wood_background.jpg')",
+      }}
+    >
       <div className="container mx-auto px-4">
         <ul className="flex justify-center flex-wrap gap-2 my-4 mt-12">
           {categories.map(({ key, label }) => (
