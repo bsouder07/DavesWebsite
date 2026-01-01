@@ -159,6 +159,16 @@ const BeforeAfter = () => {
       ],
     },
 
+    // ✅ ONLY show Russ images when "All" is selected
+    {
+      category: "all",
+      title: "Shed Build – Russ Bronowicki",
+      images: [
+        "/Pics/Home/Reviews/Review_Russ_pic1.jpg",
+        "/Pics/Home/Reviews/Review_Russ_pic2.jpg",
+      ],
+    },
+
     // keep your extra
     {
       category: "all",

@@ -25,8 +25,22 @@ function Home() {
       text: `We called for an estimate to rebuild stairs and David responded promptly. I explained we were in a time crunch and he was able to accommodate our needs. His work was terrific. We plan on calling him again for other jobs after we move to our new home. We highly recommend David the Handyman!`,
       author: "- Bobbie Schwendeman",
     },
+
+    // ✅ NEW RUSS REVIEW
     {
       id: 2,
+      images: [
+        "/Pics/Home/Reviews/Review_Russ_pic1.jpg",
+        "/Pics/Home/Reviews/Review_Russ_pic2.jpg",
+      ],
+      title: "Great Work",
+      stars: 5,
+      text: `Dave did a great job building the shed I needed. He was prompt and completed the job quickly and efficiently.. thanks Dave.`,
+      author: "- Russ Bronowicki",
+    },
+
+    {
+      id: 3,
       images: [
         "/Pics/Portfolio/stairs_before_1.jpg",
         "/Pics/Portfolio/stairs_before_2.jpg",
@@ -43,11 +57,11 @@ function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeReview = reviews[activeIndex];
 
-  // 2) AUTO-SLIDE EVERY 7 SECONDS 👇
+  // ✅ AUTO-SLIDE EVERY 20 SECONDS
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % reviews.length);
-    }, 7000); // 7000ms = 7 seconds
+    }, 20000); // 20000ms = 20 seconds
 
     return () => clearInterval(timer);
   }, [reviews.length]);
@@ -141,7 +155,9 @@ function Home() {
                   className={`object-cover rounded-xl border-2 border-white shadow-md transition-all duration-300 ${
                     activeReview.images.length === 1
                       ? "w-64 h-64 sm:w-80 sm:h-80"
-                      : "w-35 h-35 sm:w-45 sm:h-45"
+                      : activeReview.id === 2
+                      ? "w-48 h-48 sm:w-56 sm:h-56" // 👈 Russ (2 pics, bigger)
+                      : "w-35 h-35 sm:w-45 sm:h-45" // 👈 Shayne (4 pics, smaller)
                   }`}
                 />
               ))}
