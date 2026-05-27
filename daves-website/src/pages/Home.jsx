@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Home() {
-  // 1) your reviews, in the order you wanted
   const reviews = [
     {
       id: 0,
@@ -25,8 +24,6 @@ function Home() {
       text: `We called for an estimate to rebuild stairs and David responded promptly. I explained we were in a time crunch and he was able to accommodate our needs. His work was terrific. We plan on calling him again for other jobs after we move to our new home. We highly recommend David the Handyman!`,
       author: "- Bobbie Schwendeman",
     },
-
-    // ✅ NEW RUSS REVIEW
     {
       id: 2,
       images: [
@@ -35,12 +32,23 @@ function Home() {
       ],
       title: "Great Work",
       stars: 5,
-      text: `Dave did a great job building the shed I needed. He was prompt and completed the job quickly and efficiently.. thanks Dave.`,
+      text: `Dave did a great job building the shed I needed. He was prompt and completed the job quickly and efficiently. Thanks Dave.`,
       author: "- Russ Bronowicki",
     },
-
     {
       id: 3,
+      images: [
+        "/Pics/Portfolio/Deck_Carpentry_pic1.jpg",
+        "/Pics/Portfolio/Deck_Carpentry_pic2.jpg",
+        "/Pics/Portfolio/Deck_Carpentry_pic3.jpg",
+      ],
+      title: "Great Work!",
+      stars: 5,
+      text: `David did a fantastic job re-doing our deck. Communication was excellent! Would highly recommend!`,
+      author: "- Tasha Snell",
+    },
+    {
+      id: 4,
       images: [
         "/Pics/Portfolio/stairs_before_1.jpg",
         "/Pics/Portfolio/stairs_before_2.jpg",
@@ -57,11 +65,10 @@ function Home() {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeReview = reviews[activeIndex];
 
-  // ✅ AUTO-SLIDE EVERY 20 SECONDS
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % reviews.length);
-    }, 20000); // 20000ms = 20 seconds
+    }, 20000);
 
     return () => clearInterval(timer);
   }, [reviews.length]);
@@ -133,7 +140,7 @@ function Home() {
             </Link>
             <Link
               to="/contact"
-              className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] text-3xl  hover:underline hover:scale-105 transition-all duration-200 ease-in-out"
+              className="font-extrabold text-orange-500 drop-shadow-[2px_1px_0_black] text-3xl hover:underline hover:scale-105 transition-all duration-200 ease-in-out"
             >
               Leave a Review
             </Link>
@@ -141,23 +148,25 @@ function Home() {
         </div>
       </div>
 
-      {/* Testimonials Section (slider) */}
+      {/* Testimonials Section */}
       <div className="w-full min-h-screen bg-green-500">
         <div className="testimonials-section w-full flex justify-center py-10">
           <div className="bg-white rounded-3xl shadow-xl w-full max-w-4xl px-6 py-8 text-center border-4 border-green-300 relative">
-            {/* images at top */}
+            {/* Review Images */}
             <div className="flex justify-center gap-4 mb-6 flex-wrap">
               {activeReview.images.map((src, index) => (
                 <img
                   key={index}
                   src={src}
-                  alt={`review ${activeReview.id} - ${index + 1}`}
+                  alt={`Review ${activeReview.id + 1} image ${index + 1}`}
                   className={`object-cover rounded-xl border-2 border-white shadow-md transition-all duration-300 ${
                     activeReview.images.length === 1
                       ? "w-64 h-64 sm:w-80 sm:h-80"
-                      : activeReview.id === 2
-                      ? "w-48 h-48 sm:w-56 sm:h-56" // 👈 Russ (2 pics, bigger)
-                      : "w-35 h-35 sm:w-45 sm:h-45" // 👈 Shayne (4 pics, smaller)
+                      : activeReview.images.length === 2
+                      ? "w-48 h-48 sm:w-56 sm:h-56"
+                      : activeReview.images.length === 3
+                      ? "w-40 h-40 sm:w-48 sm:h-48"
+                      : "w-35 h-35 sm:w-45 sm:h-45"
                   }`}
                 />
               ))}
@@ -167,6 +176,7 @@ function Home() {
               {activeReview.title}
             </h2>
 
+            {/* Stars */}
             <div className="flex justify-center mb-4">
               {[...Array(activeReview.stars)].map((_, i) => (
                 <svg
@@ -205,7 +215,7 @@ function Home() {
               {activeReview.author}
             </h4>
 
-            {/* dots */}
+            {/* Navigation Dots */}
             <div className="flex justify-center gap-3 mt-6">
               {reviews.map((review, idx) => (
                 <button

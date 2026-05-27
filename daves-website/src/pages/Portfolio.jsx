@@ -33,7 +33,6 @@ const BeforeAfter = () => {
         "/Pics/Portfolio/gutter_soffitt_fixed_3.jpg",
       ],
     },
-    // ➜ Shayne's review photos go in Gutter
     {
       category: "gutter",
       title: "Gutter / Soffit – Shayne Milot",
@@ -58,7 +57,10 @@ const BeforeAfter = () => {
     {
       category: "deck",
       title: "Deck Work",
-      images: ["/Pics/Portfolio/deck_pic3.jpg", "/Pics/Portfolio/deck_pic4.jpg"],
+      images: [
+        "/Pics/Portfolio/deck_pic3.jpg",
+        "/Pics/Portfolio/deck_pic4.jpg",
+      ],
     },
 
     // ----- CARPENTRY -----
@@ -90,15 +92,38 @@ const BeforeAfter = () => {
           src: "/Pics/Portfolio/stairs_after_3.jpg",
           caption: "Built closet underneath the stairs",
         },
-        { src: "/Pics/Portfolio/carpentry_wall_1.jpg" },
-        { src: "/Pics/Portfolio/carpentry_wall_2.jpg" },
-        { src: "/Pics/Portfolio/carpentry_wall_3.jpg" },
-        { src: "/Pics/Portfolio/replacement_stairs_1.jpg" },
-        { src: "/Pics/Portfolio/replacement_stairs_2.jpg" },
-        // ➜ Bobbie's review picture added to carpentry
+        {
+          src: "/Pics/Portfolio/carpentry_wall_1.jpg",
+        },
+        {
+          src: "/Pics/Portfolio/carpentry_wall_2.jpg",
+        },
+        {
+          src: "/Pics/Portfolio/carpentry_wall_3.jpg",
+        },
+        {
+          src: "/Pics/Portfolio/replacement_stairs_1.jpg",
+        },
+        {
+          src: "/Pics/Portfolio/replacement_stairs_2.jpg",
+        },
         {
           src: "/Pics/Home/Reviews/Review_Bobbie_pic1.jpg",
           caption: "Stairs rebuild",
+        },
+
+        // Tasha's deck carpentry photos
+        {
+          src: "/Pics/Portfolio/Deck_Carpentry_pic1.jpg",
+          
+        },
+        {
+          src: "/Pics/Portfolio/Deck_Carpentry_pic2.jpg",
+          
+        },
+        {
+          src: "/Pics/Portfolio/Deck_Carpentry_pic3.jpg",
+          
         },
       ],
     },
@@ -159,7 +184,7 @@ const BeforeAfter = () => {
       ],
     },
 
-    // ✅ ONLY show Russ images when "All" is selected
+    // Only shows as its own group when All is selected
     {
       category: "all",
       title: "Shed Build – Russ Bronowicki",
@@ -169,7 +194,6 @@ const BeforeAfter = () => {
       ],
     },
 
-    // keep your extra
     {
       category: "all",
       title: "Extra Soffit Work",
@@ -180,6 +204,7 @@ const BeforeAfter = () => {
   const portfolioItems = groupedItems.flatMap((item) =>
     item.images.map((img, idx) => {
       const isObject = typeof img === "object";
+
       return {
         src: isObject ? img.src : img,
         caption: isObject ? img.caption : null,
@@ -196,14 +221,22 @@ const BeforeAfter = () => {
       transitionDuration: "0.4s",
     });
 
-    GLightbox({ selector: ".portfolio-lightbox" });
+    const lightbox = GLightbox({
+      selector: ".portfolio-lightbox",
+    });
 
-    return () => isotope.current.destroy();
+    return () => {
+      isotope.current.destroy();
+      lightbox.destroy();
+    };
   }, []);
 
   const handleFilter = (filter) => {
     setActiveCategory(filter);
-    isotope.current.arrange({ filter: filter === "all" ? "*" : `.${filter}` });
+
+    isotope.current.arrange({
+      filter: filter === "all" ? "*" : `.${filter}`,
+    });
   };
 
   const categories = [
@@ -246,13 +279,18 @@ const BeforeAfter = () => {
               key={index}
               className={`portfolio-item ${item.category} text-center`}
             >
-              <a href={item.src} className="portfolio-lightbox">
+              <a
+                href={item.src}
+                className="portfolio-lightbox"
+                data-title={item.caption || item.title}
+              >
                 <img
                   src={item.src}
                   alt={item.title}
                   className="rounded-lg object-cover w-full h-40 min-h-[160px] hover:scale-105 transition-transform duration-200"
                 />
               </a>
+
               {item.caption && (
                 <p className="portfolio-caption mt-2">{item.caption}</p>
               )}
