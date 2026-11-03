@@ -46,20 +46,23 @@ const BeforeAfter = () => {
     },
 
     // ----- DECK -----
-    {
-      category: "deck",
-      title: "Deck Fix",
-      images: [
-        "/Pics/Portfolio/deck_beforefix.jpg",
-        "/Pics/Portfolio/deck_afterfix.jpg",
-      ],
-    },
-    {
+{
       category: "deck",
       title: "Deck Work",
       images: [
         "/Pics/Portfolio/deck_pic3.jpg",
         "/Pics/Portfolio/deck_pic4.jpg",
+      ],
+    },
+    {
+      category: "deck",
+      title: "Pool Deck Project",
+      images: [
+        "/Pics/Home/Reviews/Pool_Deck_pic1.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic2.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic3.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic4.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic5.jpg",
       ],
     },
 

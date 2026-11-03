@@ -4,6 +4,20 @@ import { Link } from "react-router-dom";
 function Home() {
   const reviews = [
     {
+      id: 5,
+      images: [
+        "/Pics/Home/Reviews/Pool_Deck_pic1.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic2.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic3.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic4.jpg",
+        "/Pics/Home/Reviews/Pool_Deck_pic5.jpg",
+      ],
+      title: "Excellent Deck Work",
+      stars: 0, // No star rating was provided in the text message
+      text: `We are enjoying our deck. Dave the handyman did an excellent job, precise work and very professional and business oriented. We will use him for any job large or small. Thank you Dave`,
+      author: "- Happy Customer",
+    },
+    {
       id: 0,
       images: [
         "/Pics/Home/Reviews/Review_Shayne_pic1.jpg",
@@ -17,7 +31,7 @@ function Home() {
       author: "- Shayne Milot",
     },
     {
-      id: 1,
+  id: 1,
       images: ["/Pics/Home/Reviews/Review_Bobbie_pic1.jpg"],
       title: "Highly Recommend",
       stars: 5,
@@ -112,7 +126,7 @@ function Home() {
               </p>
               <Link
                 to="/services"
-                className="home-button text-lg md:text-xl px-6 py-3"
+          className="home-button text-lg md:text-xl px-6 py-3"
               >
                 Services
               </Link>
@@ -144,7 +158,7 @@ function Home() {
             >
               Leave a Review
             </Link>
-          </div>
+</div>
         </div>
       </div>
 
